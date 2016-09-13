@@ -113,3 +113,16 @@ html, body {
     font-size: 12px;
 }
 /* end Custom styles*/
+
+/* Solution BOX: */
+.solution_box {
+    position: relative;
+    padding-bottom: 16px;
+}
+
+.title_content {
+    font-size: 18px;
+    font-weight: bold;
+    padding-bottom: 16px;
+    color: #2d2d2d;
+}

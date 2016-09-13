@@ -7,9 +7,31 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="css/custom.css">
 
-
     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Создание массива:
+            var n=20, m=20;
+            var mas=new Array(n);
+            var container = document.querySelector('#array_table');
+            var tbodyContainer = container.children[0];
 
+            for (var i=0; i<n; i++) {
+                mas[i]=new Array(m);
+            }
+
+            for (var i=0;i<m;i++){
+                var trContent =  '';
+                for (j=0;j<n;j++){
+                    mas[i][j]=Math.floor(Math.random() * 10);
+                    trContent = trContent + '<td>'+mas[i][j]+'</td>';
+                }
+                tbodyContainer.insertAdjacentHTML('beforeEnd', '<tr>'+trContent+'</tr>');
+            }
+
+            // Перебор и подсчет элементов массива:
+            console.log(tbodyContainer.elements('tr'));
+
+        });
     </script>
 </head>
 <body>
@@ -18,7 +40,7 @@
         <div class="msg">
             <h1 class="center">Задание 1. Двумерный масив</h1>
             <div class="msg_description">
-                Создать двумерный масив 20*20<br>
+                Создать двумерный масив 20x20<br>
                 с рандомными значениями от 0 до 9,<br>
                 и подсчитать количество 0, 1, 2 ..
             </div>
@@ -27,17 +49,17 @@
     </header>
 
     <section class="wrapper">
-        <ul class="task_lis fix_max_w box_center">
-            <li>
-                <a href="1/index.html">
-                    <b>Задание 1. Двумерный масив <br></b>
-                    <i>Создать двумерный масив 100*100
-                        с рандомными значениями от 0 до 9,
-                        и подсчитать количество 0, 1, 2 ..
-                    </i>
-                </a>
-            </li>
-        </ul>
+        <div class="solution_box">
+            <div class="solution_content">
+                <h2 class="center title_content">Решение:</h2>
+
+                <table id="array_table" class="array_table box_center">
+                    <tbody>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </section>
 </section>
 <footer class="site_footer center">
