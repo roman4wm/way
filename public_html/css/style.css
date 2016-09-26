@@ -24,6 +24,9 @@ html, body {
     line-height: 40px;
     font-size: 12px;
 }
+.site_footer i {
+    font-style: italic;
+}
 /* end Sticky Footer*/
 
 .wrapper {
@@ -31,7 +34,7 @@ html, body {
     background-color: ghostwhite;
     border-top: 1px solid darkslategray;
     border-bottom: 1px solid darkslategray;
-    padding: 35px;
+    padding: 18px 35px 35px 35px;
 }
 .msg_box {
     border-style: ridge;
@@ -124,5 +127,6 @@ html, body {
     font-size: 18px;
     font-weight: bold;
     padding-bottom: 16px;
+    padding-top: 18px;
     color: #2d2d2d;
 }

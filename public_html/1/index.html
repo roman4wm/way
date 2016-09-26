@@ -5,40 +5,60 @@
     <title>Задание 1. Двумерный масив</title>
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/style.css">
+    <!--<link href="../prettify/prettify.css" type="text/css" rel="stylesheet" />-->
     <link rel="stylesheet" href="css/custom.css">
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+
             // Создание массива:
             var n=20, m=20;
-            var mas=new Array(n);
+            var masOutput=new Array(n);
             var container = document.querySelector('#array_table');
             var tbodyContainer = container.children[0];
+            var i, j;
 
-            for (var i=0; i<n; i++) {
-                mas[i]=new Array(m);
+            for (i=0; i<n; i++) {
+                masOutput[i]=new Array(m);
             }
 
-            for (var i=0;i<m;i++){
+            // Создание таблицы:
+            for (i=0;i<m;i++){
                 var trContent =  '';
                 for (j=0;j<n;j++){
-                    mas[i][j]=Math.floor(Math.random() * 10);
-                    trContent = trContent + '<td>'+mas[i][j]+'</td>';
+                    masOutput[i][j]=Math.floor(Math.random() * 10);
+                    trContent = trContent + '<td>'+masOutput[i][j]+'</td>';
                 }
                 tbodyContainer.insertAdjacentHTML('beforeEnd', '<tr>'+trContent+'</tr>');
             }
 
             // Перебор и подсчет элементов массива:
-            console.log(tbodyContainer.elements('tr'));
+            var rows = container.rows.length;
+            var cells = container.rows[0].cells.length;
+            var masInput = new Array(rows);
+
+            for (i=0; i<rows; i++) {
+                masInput[i]=new Array(cells);
+            }
+
+            for (i=0; i<rows; i++){
+                for (j=0; j<cells; j++){
+                    masInput[i][j] = container.rows[i].cells[j].innerHTML;
+                }
+            }
+
+            console.log('masOutput: ' + masOutput);
+            console.log('masInput: ' + masInput);
+//            console.log('masInput[3][4]: ' + masInput[3][3]);
 
         });
     </script>
 </head>
-<body>
+<body  onload="prettyPrint()">
 <section class="page_wrap">
     <header class="wrapper msg_box green fix_w">
         <div class="msg">
-            <h1 class="center">Задание 1. Двумерный масив</h1>
+            <h1 class="center">Задание 1. Двумерный масив (JavaScript)</h1>
             <div class="msg_description">
                 Создать двумерный масив 20x20<br>
                 с рандомными значениями от 0 до 9,<br>
@@ -58,12 +78,81 @@
 
                     </tbody>
                 </table>
+
+                <!--Тестовая таблица:-->
+                <table id="array_table" class="array_table box_center" style="display: none">
+                    <tbody>
+                        <tr>
+                            <td>3</td>
+                            <td>7</td>
+                            <td>6</td>
+                            <td>2</td>
+                            <td>1</td>
+                            <td>7</td>
+                            <td>5</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>0</td>
+                            <td>6</td>
+                            <td>0</td>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>8</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>4</td>
+                            <td>1</td>
+                            <td>5</td>
+                            <td>1</td>
+                            <td>5</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>7</td>
+                            <td>1</td>
+                            <td>3</td>
+                            <td>9</td>
+                            <td>9</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>0</td>
+                            <td>8</td>
+                            <td>6</td>
+                            <td>7</td>
+                            <td>3</td>
+                            <td>1</td>
+                            <td>8</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h2 class="center title_content">Вывод:</h2>
+
+                <div>
+                    <div id="mas_output">
+
+                    </div>
+                    <div id="mas_input">
+
+                    </div>
+                </div>
+
+                <iframe style="width: 100%; height: 600px" src="http://embed.plnkr.co/KVgnsyYejcAQkqglQLt4" frameborder="0" allowfullscren="allowfullscren"></iframe>
+
             </div>
         </div>
     </section>
 </section>
+
 <footer class="site_footer center">
-    Roman Yarovoy ©2016
+    <i>Tasks from</i> Max Shestopalov,  <i>Tasks solving by</i> Roman Yarovoy ©2016
 </footer>
+
+<!--<script type="text/javascript" src="../prettify/prettify.js"></script>-->
+<!--<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>-->
 </body>
 </html>
